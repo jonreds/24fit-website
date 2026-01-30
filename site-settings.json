@@ -1,0 +1,13 @@
+{
+  "maintenanceMode": false,
+  "maintenanceMessage": "Il sito è in manutenzione. Tornerà disponibile entro 24h.",
+  "appStoreLink": "",
+  "playStoreLink": "",
+  "appComingSoon": true,
+  "appComingSoonMessage": "L'app 24FIT sarà disponibile a breve! Ti avviseremo via email quando potrai scaricarla.",
+  "dailyPassEnabled": true,
+  "featuredPlanId": null,
+  "promoBannerEnabled": false,
+  "promoBannerText": "",
+  "promoBannerLink": ""
+}
