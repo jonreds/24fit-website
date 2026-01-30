@@ -1,0 +1,20 @@
+{
+  "crons": [
+    {
+      "path": "/api/cron/expiring-subscriptions",
+      "schedule": "0 8 * * *"
+    },
+    {
+      "path": "/api/cron/expiring-push",
+      "schedule": "0 9 * * *"
+    },
+    {
+      "path": "/api/cron/expired-pauses",
+      "schedule": "0 0 * * *"
+    },
+    {
+      "path": "/api/cron/cleanup-tokens",
+      "schedule": "0 3 * * *"
+    }
+  ]
+}

@@ -1,0 +1,295 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+model clienti {
+  id                    Int       @id @default(autoincrement())
+  email                 String    @unique(map: "email") @db.VarChar(255)
+  password              String?   @db.VarChar(255)
+  nome                  String    @db.VarChar(100)
+  cognome               String    @db.VarChar(100)
+  telefono              String?   @db.VarChar(20)
+  data_nascita          DateTime? @db.Date
+  luogo_nascita         String?   @db.VarChar(100)
+  codice_fiscale        String?   @db.VarChar(16)
+  indirizzo             String?   @db.VarChar(255)
+  citta                 String?   @db.VarChar(100)
+  cap                   String?   @db.VarChar(10)
+  provincia             String?   @db.VarChar(2)
+  sesso                 String?   @db.VarChar(10)
+  avatar                String?   @db.VarChar(255)
+  abbonamento_attivo    Boolean   @default(false)
+  abbonamento_tipo      String?   @db.VarChar(50)
+  abbonamento_scadenza  DateTime? @db.Date
+  piano_id              Int?
+  struttura_id          String?   @db.VarChar(50)
+  stripe_customer_id    String?   @db.VarChar(255)
+  giorni_pausa_totali   Int       @default(0)
+  giorni_pausa_usati    Int       @default(0)
+  pausa_attiva          Boolean   @default(false)
+  pausa_data_inizio     DateTime? @db.Date
+  pausa_data_fine       DateTime? @db.Date
+  stato_account         String    @default("attivo") @db.VarChar(20)
+  ban_data_inizio       DateTime? @db.Date
+  ban_data_fine         DateTime? @db.Date
+  ban_motivo            String?   @db.Text
+  documento_tipo        String?   @db.VarChar(50)
+  documento_fronte      String?   @db.VarChar(255)
+  documento_retro       String?   @db.VarChar(255)
+  documento_verificato  Boolean   @default(false)
+  fcm_token             String?   @db.VarChar(255)
+  push_enabled          Boolean   @default(true)
+  onboarding_completato Boolean   @default(false)
+  contratto_firmato     Boolean   @default(false)
+  privacy_accettata     Boolean   @default(false)
+  ultimo_accesso        DateTime?
+  created_at            DateTime  @default(now())
+  updated_at            DateTime  @updatedAt
+  stripe_payment_id     String?   @db.VarChar(255)
+
+  // Relations
+  piano                 piani?    @relation(fields: [piano_id], references: [id])
+  note                  note_cliente[]
+  pause                 pause_abbonamento[]
+  accessi               accessi[]
+  fatture               fatture[]
+}
+
+model note_cliente {
+  id           Int       @id @default(autoincrement())
+  cliente_id   Int
+  autore_id    Int
+  autore_ruolo String    @db.VarChar(20)
+  contenuto    String    @db.Text
+  tipo         String?   @default("nota") @db.VarChar(20)
+  visibile_a   String?   @default("all") @db.VarChar(50)
+  created_at   DateTime? @default(now()) @db.Timestamp(0)
+  updated_at   DateTime? @default(now()) @updatedAt @db.Timestamp(0)
+
+  // Relations
+  cliente      clienti   @relation(fields: [cliente_id], references: [id], onDelete: Cascade)
+  autore       users     @relation(fields: [autore_id], references: [id])
+
+  @@index([autore_id], map: "idx_autore")
+  @@index([cliente_id], map: "idx_cliente")
+}
+
+model pause_abbonamento {
+  id          Int       @id @default(autoincrement())
+  cliente_id  Int
+  data_inizio DateTime  @db.Date
+  data_fine   DateTime  @db.Date
+  giorni      Int
+  tipo        String?   @default("cliente") @db.VarChar(20)
+  admin_id    Int?
+  motivo      String?   @db.Text
+  created_at  DateTime? @default(now()) @db.Timestamp(0)
+
+  // Relations
+  cliente     clienti   @relation(fields: [cliente_id], references: [id], onDelete: Cascade)
+
+  @@index([cliente_id], map: "idx_cliente")
+}
+
+model piani {
+  id                   Int       @id @default(autoincrement())
+  nome                 String    @db.VarChar(100)
+  descrizione          String?   @db.Text
+  durata_mesi          Int
+  prezzo               Decimal   @db.Decimal(10, 2)
+  prezzo_mensile       Decimal?  @db.Decimal(10, 2)
+  quota_iscrizione     Decimal?  @default(0.00) @db.Decimal(10, 2)
+  prezzo_totale        Decimal?  @db.Decimal(10, 2)
+  giorni_pausa_inclusi Int?      @default(0)
+  pausa_minima_giorni  Int?      @default(3)
+  promo_attiva         Boolean?  @default(false)
+  promo_nome           String?   @db.VarChar(100)
+  promo_prezzo         Decimal?  @db.Decimal(10, 2)
+  popolare             Boolean?  @default(false)
+  in_evidenza          Boolean?  @default(false)
+  ordine               Int?      @default(0)
+  attivo               Boolean?  @default(true)
+  features             Json?
+  created_at           DateTime? @default(now()) @db.Timestamp(0)
+  updated_at           DateTime? @default(now()) @updatedAt @db.Timestamp(0)
+
+  // Relations
+  clienti              clienti[]
+  promozioni_struttura promozioni_struttura[]
+}
+
+model users {
+  id                  Int       @id @default(autoincrement())
+  email               String    @unique
+  username            String?   @unique(map: "username") @db.VarChar(50)
+  password            String
+  nome                String?
+  cognome             String?
+  telefono            String?
+  ruolo               String    @default("staff")
+  avatar              String?
+  attivo              Boolean   @default(true)
+  tenantId            String    @default("default")
+  ultimoAccesso       DateTime?
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+  onboardingCompleted Boolean?  @default(false)
+
+  // Relations
+  note_create         note_cliente[]
+}
+
+model accessi {
+  id         Int      @id @default(autoincrement())
+  cliente_id Int
+  tipo       String   @default("ingresso") @db.VarChar(20)
+  metodo     String   @default("qr") @db.VarChar(20)
+  data_ora   DateTime @default(now())
+  sede_id    Int?
+
+  // Relations
+  cliente    clienti  @relation(fields: [cliente_id], references: [id], onDelete: Cascade)
+
+  @@index([cliente_id], map: "idx_accesso_cliente")
+  @@index([data_ora], map: "idx_accesso_data")
+}
+
+model fatture {
+  id                  Int       @id @default(autoincrement())
+  cliente_id          Int
+  fic_document_id     Int?
+  fic_document_number Int?
+  tipo                String    @db.VarChar(20)
+  importo             Decimal   @db.Decimal(10, 2)
+  iva                 Decimal?  @db.Decimal(10, 2)
+  totale              Decimal   @db.Decimal(10, 2)
+  descrizione         String?   @db.VarChar(500)
+  stato               String    @default("emessa") @db.VarChar(20)
+  pdf_url             String?   @db.VarChar(500)
+  stripe_session_id   String?   @db.VarChar(255)
+  stripe_payment_id   String?   @db.VarChar(255)
+  data_emissione      DateTime  @default(now()) @db.DateTime(0)
+  data_pagamento      DateTime? @db.DateTime(0)
+  created_at          DateTime  @default(now()) @db.Timestamp(0)
+  updated_at          DateTime  @default(now()) @db.Timestamp(0)
+
+  // Relations
+  cliente             clienti   @relation(fields: [cliente_id], references: [id], onDelete: Cascade)
+
+  @@index([cliente_id], map: "idx_fattura_cliente")
+}
+
+model password_reset_tokens {
+  id         Int       @id @default(autoincrement())
+  cliente_id Int
+  token_hash String    @db.VarChar(255)
+  expires_at DateTime  @db.DateTime(0)
+  used       Boolean?  @default(false)
+  created_at DateTime? @default(now()) @db.Timestamp(0)
+
+  @@index([cliente_id], map: "idx_cliente")
+  @@index([token_hash], map: "idx_token")
+}
+
+model config_generali {
+  id           Int      @id @default(autoincrement())
+  tenantId     String   @unique
+  identita     Json?
+  valuta       Json?
+  manutenzione Json?
+  backup       Json?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime
+}
+
+model config_uploads {
+  id         Int      @id @default(autoincrement())
+  tenantId   String   @default("default")
+  type       String
+  path       String
+  uploadedBy Int?
+  uploadedAt DateTime @default(now())
+
+  @@unique([tenantId, type])
+}
+
+model documenti_verifica {
+  id             Int       @id @default(autoincrement())
+  cliente_id     Int
+  tipo_documento String    @db.VarChar(50)
+  file_path      String    @db.VarChar(500)
+  file_name      String    @db.VarChar(255)
+  file_size      Int?
+  mime_type      String?   @db.VarChar(100)
+  stato          String    @default("pending") @db.VarChar(20)
+  data_scadenza  DateTime? @db.Date
+  note_verifica  String?   @db.Text
+  verificato_da  Int?
+  data_verifica  DateTime? @db.DateTime(0)
+  created_at     DateTime  @default(now()) @db.Timestamp(0)
+  updated_at     DateTime  @default(now()) @db.Timestamp(0)
+
+  @@index([cliente_id], map: "idx_doc_cliente")
+  @@index([stato], map: "idx_doc_stato")
+  @@index([tipo_documento], map: "idx_doc_tipo")
+}
+
+model notifiche {
+  id          Int      @id @default(autoincrement())
+  tipo        String   @db.VarChar(50)
+  titolo      String   @db.VarChar(255)
+  messaggio   String   @db.Text
+  link        String?  @db.VarChar(500)
+  destinatari String   @default("staff") @db.VarChar(50)
+  letto       Boolean  @default(false)
+  letto_da    Json?
+  metadata    Json?
+  created_at  DateTime @default(now()) @db.Timestamp(0)
+
+  @@index([created_at], map: "idx_notifica_created")
+  @@index([letto], map: "idx_notifica_letto")
+  @@index([tipo], map: "idx_notifica_tipo")
+}
+
+model contatti_nutrizione {
+  id          Int       @id @default(autoincrement())
+  nome        String    @db.VarChar(100)
+  cognome     String    @db.VarChar(100)
+  email       String    @db.VarChar(255)
+  telefono    String    @db.VarChar(20)
+  obiettivo   String    @db.VarChar(100)
+  messaggio   String?   @db.Text
+  stato       String    @default("nuovo") @db.VarChar(20)
+  note        String?   @db.Text
+  gestito_da  Int?
+  gestito_il  DateTime? @db.DateTime(0)
+  created_at  DateTime  @default(now()) @db.Timestamp(0)
+
+  @@index([stato], map: "idx_nutrizione_stato")
+  @@index([created_at], map: "idx_nutrizione_created")
+}
+
+model promozioni_struttura {
+  id            Int       @id @default(autoincrement())
+  piano_id      Int
+  struttura_id  String    @db.VarChar(50)
+  promo_attiva  Boolean   @default(true)
+  promo_nome    String?   @db.VarChar(100)
+  promo_prezzo  Decimal?  @db.Decimal(10, 2)
+  data_inizio   DateTime? @db.Date
+  data_fine     DateTime? @db.Date
+  created_at    DateTime  @default(now()) @db.Timestamp(0)
+  updated_at    DateTime  @default(now()) @updatedAt @db.Timestamp(0)
+
+  // Relations
+  piano         piani     @relation(fields: [piano_id], references: [id], onDelete: Cascade)
+
+  @@unique([piano_id, struttura_id])
+  @@index([struttura_id], map: "idx_promo_struttura")
+  @@index([piano_id], map: "idx_promo_piano")
+}
