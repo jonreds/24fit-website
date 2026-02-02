@@ -61,19 +61,18 @@ export default function TerminiPage() {
       <div className="mb-6">
         <h2 className="text-base font-semibold mb-2 text-gray-900">2. Limitazione di responsabilità</h2>
         <p className="text-gray-700 mb-3 font-medium leading-relaxed">
-          La Società, inclusi i suoi dipendenti e collaboratori, non è responsabile in caso di perdite, danni o furti,
-          di qualsiasi bene appartenente al cliente che si verifichino nei locali della palestra ed in particolare nei
+          La Società, inclusi i suoi dipendenti e collaboratori, non è responsabile in caso di perdite, danni o furti
+          di qualsiasi bene appartenente al cliente, che si verifichino nei locali della palestra ed in particolare nei
           locali spogliatoio.
         </p>
         <p className="text-gray-700 mb-3 font-medium leading-relaxed">
-          La Società, inclusi i suoi dipendenti e collaboratori, non è responsabile per qualsiasi lesione che il cliente
-          si potrà procurare per l'uso delle attrezzature, fatto salvo che il danno/lesione non derivi dalla struttura
-          e/o dalla attrezzatura impiegata (escluso l'uso non idoneo della stessa) personale o malattia del cliente,
-          che si verifichi nei locali della palestra.
+          La Società, inclusi i suoi dipendenti e collaboratori, non è inoltre responsabile per qualsiasi lesione che il
+          cliente si potrà procurare nell'uso delle attrezzature durante i suoi allenamenti, fatto salvo che il danno/lesione
+          non derivi dalla struttura e/o dalla attrezzatura impiegata (escluso l'uso non idoneo della stessa).
         </p>
         <p className="text-gray-700 mb-3 font-medium leading-relaxed">
-          È responsabilità del cliente accedere correttamente alle strutture ed impiegare correttamente le attrezzature
-          messe a disposizione dalla Società.
+          È responsabilità del cliente accedere in modo adeguato alle strutture ed impiegare correttamente ed in modo
+          prudente le attrezzature.
         </p>
       </div>
 
