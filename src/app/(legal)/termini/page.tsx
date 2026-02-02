@@ -9,8 +9,9 @@ export default function TerminiPage() {
   return (
     <LegalPageLayout title="Condizioni Generali di Abbonamento e Regolamento">
       <p className="text-gray-700 mb-6 font-medium leading-relaxed italic">
-        Ti verrà richiesto di firmare il regolamento generale che segue nella versione cartacea e/o digitale
-        (mediante firma da apporre su apposito tablet) del presente contratto in reception.
+        Per perfezionare l'adesione al Centro, Ti verrà richiesto di prendere visione e firmare per accettazione
+        il regolamento generale nella versione cartacea che troverai in Reception, oppure la versione digitale
+        (mediante firma da apporre su apposito tablet).
       </p>
 
       <div className="mb-6">
@@ -20,9 +21,11 @@ export default function TerminiPage() {
         </p>
         <p className="text-gray-700 mb-3 font-medium leading-relaxed">
           Accettando le presenti "Condizioni generali di abbonamento e regolamento" il cliente approva espressamente
-          impegnandosi a rispettarlo e prendendo atto che una sua mancata osservazione può comportare il diritto per
-          la Società di recedere dal contratto dietro comunicazione scritta motivata e senza alcun onere di risarcimento
-          o rimborso della quota pagata.
+          il contenuto impegnandosi a rispettarlo.
+        </p>
+        <p className="text-gray-700 mb-3 font-medium leading-relaxed">
+          La sua mancata osservazione può comportare il diritto per la Società di recedere dal contratto previa
+          comunicazione scritta motivata e senza alcun onere di risarcimento o rimborso della quota pagata.
         </p>
         <p className="text-gray-700 mb-3 font-medium leading-relaxed">
           La sottoscrizione del modulo di iscrizione costituisce la proposta per diventare cliente della palestra.
@@ -41,19 +44,17 @@ export default function TerminiPage() {
           esaustivo, di ritardo di apertura del centro o di chiusura imposta dall'Autorità.
         </p>
         <p className="text-gray-700 mb-3 font-medium leading-relaxed">
-          L'abbonamento annuale ha inizio dal giorno di sottoscrizione o dal primo accesso alla palestra, il primo
-          ingresso dovrà essere entro un anno dalla sottoscrizione dell'abbonamento.
+          L'abbonamento ha inizio dal giorno di sottoscrizione alla palestra, salvo differenti pattuizioni da concordare
+          al momento della sottoscrizione.
         </p>
         <p className="text-gray-700 mb-3 font-medium leading-relaxed">
-          L'iscrizione vitalizia è valida esclusivamente nella sede dove è stato sottoscritto il contratto e a condizione
-          che il contratto medesimo venga rinnovato entro la data di scadenza. Pertanto, trascorsa la data di scadenza,
-          non è considerato un rinnovo ma un diverso e separato contratto, che prevede la corresponsione della quota di iscrizione.
+          L'iscrizione a 24FIT consente al cliente di accedere nelle sedi operative attive a condizione che il contratto
+          medesimo sia attivo e venga rinnovato entro la data di scadenza.
         </p>
         <p className="text-gray-700 mb-3 font-medium leading-relaxed">
-          È possibile cedere l'abbonamento a terzi a fronte di un versamento una tantum di 99,00 € per la gestione delle
-          spese amministrative e assicurative da parte del nuovo intestatario dell'abbonamento che usufruirà del periodo
-          rimanente. Sarà possibile trasferire l'abbonamento in un altro centro del circuito: il cliente cessionario
-          pagherà alla nuova palestra 99,00 € per il trasferimento.
+          È possibile cedere l'abbonamento a terzi (non la quota associativa), previo formale richiesta sottoscritta dal
+          cliente con individuazione del cessionario, il quale dovrà versare a 24FIT un importo una tantum di 99,00 € per
+          la gestione delle spese amministrative e assicurative, usufruendo così del periodo d'abbonamento per il periodo rimanente.
         </p>
       </div>
 
@@ -61,15 +62,18 @@ export default function TerminiPage() {
         <h2 className="text-base font-semibold mb-2 text-gray-900">2. Limitazione di responsabilità</h2>
         <p className="text-gray-700 mb-3 font-medium leading-relaxed">
           La Società, inclusi i suoi dipendenti e collaboratori, non è responsabile in caso di perdite, danni o furti,
-          che si verifichino nei locali della palestra di qualsiasi bene appartenente al cliente o ai suoi ospiti.
+          di qualsiasi bene appartenente al cliente che si verifichino nei locali della palestra ed in particolare nei
+          locali spogliatoio.
         </p>
         <p className="text-gray-700 mb-3 font-medium leading-relaxed">
-          La Società, inclusi i suoi dipendenti e collaboratori, non è responsabile per qualsiasi lesione personale o
-          malattia del cliente o dei suoi ospiti, che si verifichi nei locali della palestra.
+          La Società, inclusi i suoi dipendenti e collaboratori, non è responsabile per qualsiasi lesione che il cliente
+          si potrà procurare per l'uso delle attrezzature, fatto salvo che il danno/lesione non derivi dalla struttura
+          e/o dalla attrezzatura impiegata (escluso l'uso non idoneo della stessa) personale o malattia del cliente,
+          che si verifichi nei locali della palestra.
         </p>
         <p className="text-gray-700 mb-3 font-medium leading-relaxed">
-          È responsabilità del cliente utilizzare correttamente tutte le strutture e attrezzature messe a disposizione
-          dalla Società.
+          È responsabilità del cliente accedere correttamente alle strutture ed impiegare correttamente le attrezzature
+          messe a disposizione dalla Società.
         </p>
       </div>
 
@@ -77,9 +81,15 @@ export default function TerminiPage() {
         <h2 className="text-base font-semibold mb-2 text-gray-900">3. Assicurazione</h2>
         <p className="text-gray-700 mb-3 font-medium leading-relaxed">
           La Società è coperta da assicurazione per responsabilità civile. Tale assicurazione copre esclusivamente gli
-          eventuali danni a cose o persone causati direttamente per colpa della Società. Tutti i danni alle strutture
-          o ai beni della Società, anche se nell'esercizio di attività svolte con istruttori, saranno a carico di chi
-          li avrà cagionati.
+          eventuali danni a cose o persone causati direttamente per colpa della Società.
+        </p>
+        <p className="text-gray-700 mb-3 font-medium leading-relaxed">
+          Tutti i danni alle strutture e/o ai beni della Società, anche se cagionati nell'esercizio di attività svolte
+          con gli istruttori, saranno a carico di chi li avrà procurati.
+        </p>
+        <p className="text-gray-700 mb-3 font-medium leading-relaxed">
+          Per avere accesso alla copertura Assicurativa è necessario ed essenziale che sia registrata la presenza nella
+          struttura, attraverso registrazione ai lettori di ingresso ai Centri.
         </p>
       </div>
 
@@ -88,12 +98,12 @@ export default function TerminiPage() {
         <p className="text-gray-700 mb-3 font-medium leading-relaxed">
           L'utilizzo delle attrezzature e strutture messe a disposizione dalla Società è subordinato all'idoneità fisica
           del cliente. Tale idoneità può essere comprovata esclusivamente mediante consegna (entro 30 giorni dall'iscrizione
-          o dalla scadenza del certificato medico precedente) di un certificato medico di sana e robusta costituzione,
+          o dalla scadenza del certificato medico precedente) almeno di un certificato medico di sana e robusta costituzione,
           rilasciato da un medico abilitato. Il relativo benestare rilasciato da qualunque medico in detti locali o anche
           al di fuori di essi, non implica comunque assunzione di alcuna responsabilità da parte della Società.
         </p>
         <p className="text-gray-700 mb-3 font-medium leading-relaxed">
-          Nel periodo che intercorre fra l'iscrizione e la presentazione del certificato medico, ovvero in qualsiasi
+          Nel periodo dei 30gg che intercorre fra l'iscrizione e la presentazione del certificato medico, ovvero in qualsiasi
           periodo in cui il cliente sarà sprovvisto di certificato medico, il cliente che comunque inizi o continui a
           svolgere attività fisica all'interno della palestra esonera la Società da qualsiasi responsabilità.
         </p>
@@ -108,8 +118,8 @@ export default function TerminiPage() {
         <p className="text-gray-700 mb-3 font-medium leading-relaxed">
           <strong>5.1</strong> - Con il termine "sospensione" si intende la possibilità da parte del cliente di sospendere
           momentaneamente il proprio abbonamento, posticipando la data di scadenza dello stesso, della durata coincidente
-          alla sospensione. La sospensione per problemi di salute può essere fatta solo per un minimo di 21gg ed un massimo
-          di 30gg, solo per 1 volta per la durata dell'abbonamento.
+          alla sospensione. La sospensione può avvenire per i soli problemi di salute e/o di lavoro (vedi comma 5.3 che segue)
+          e può essere richiesta solo per un minimo di 21gg ed un massimo di 30gg e solo per 1 volta per la durata dell'abbonamento.
         </p>
         <p className="text-gray-700 mb-3 font-medium leading-relaxed">
           <strong>5.2</strong> - In caso di comprovate e sopravvenute sospensioni della attività non dipendenti dalla società
@@ -131,30 +141,36 @@ export default function TerminiPage() {
           <li>24M – minimo di 21gg ed un massimo di 120gg, solo per 1 volta per la durata dell'abbonamento;</li>
         </ul>
         <p className="text-gray-700 mb-3 font-medium leading-relaxed">
-          Su eventuali abbonamenti di diversa durata non sono previste sospensioni.
+          Per abbonamenti di diversa durata (inferiori ai 6m) non sono previste sospensioni.
         </p>
         <p className="text-gray-700 mb-3 font-medium leading-relaxed">
-          L'abbonamento e la Quota associativa non sono rimborsabili né cedibili a terzi.
+          La Quota associativa ed il Badge non sono rimborsabili né cedibili a terzi; per l'abbonamento valgono le note
+          precisate al punto 1 del presente.
         </p>
       </div>
 
       <div className="mb-6">
         <h2 className="text-base font-semibold mb-2 text-gray-900">6. Espulsione e risoluzione del contratto</h2>
         <p className="text-gray-700 mb-3 font-medium leading-relaxed">
-          La direzione può porre termine all'abbonamento del cliente senza preavviso e con effetto immediato: qualora la
-          condotta del cliente possa essere dannosa all'immagine o agli interessi della palestra, in caso di violazione dei
-          termini delle condizioni del contratto, inclusi i regolamenti di volta in volta vigenti, nel caso in cui tutta o
-          parte della quota di iscrizione divenga esigibile e risulti non pagata entro il termine previsto. In tali casi il
-          cliente perde tutti i diritti e privilegi inerenti l'abbonamento, senza possibilità di rimborso.
+          La direzione può porre termine all'abbonamento del cliente senza preavviso e con effetto immediato:
+        </p>
+        <ul className="list-disc pl-6 mb-3 text-gray-700 font-medium space-y-1">
+          <li>qualora la condotta del cliente possa essere dannosa all'immagine o agli interessi della palestra;</li>
+          <li>qualora a causa di un comportamento non consentito, arrechi danno alla struttura e/o alle attrezzature;</li>
+          <li>in caso di violazione dei termini delle condizioni del contratto, inclusi i regolamenti di volta in volta vigenti,
+          nel caso in cui tutta o parte della quota di iscrizione divenga esigibile e risulti non pagata entro il termine previsto.</li>
+        </ul>
+        <p className="text-gray-700 mb-3 font-medium leading-relaxed">
+          In tali casi il cliente perde tutti i diritti e privilegi inerenti l'abbonamento, senza possibilità di rimborso.
         </p>
       </div>
 
       <div className="mb-6">
         <h2 className="text-base font-semibold mb-2 text-gray-900">7. Ospiti</h2>
         <p className="text-gray-700 mb-3 font-medium leading-relaxed">
-          Il cliente che intende invitare ospiti, deve compilare l'apposito modulo di ingresso temporaneo, in Reception
-          durante gli orari di presenza del Personale. Gli ospiti godono degli stessi privilegi di abbonamento del cliente
-          e sono soggetti alle stesse regole. La Direzione si riserva il diritto di escludere qualsiasi ospite per gli stessi
+          Il cliente che intende invitare ospiti, deve compilare l'apposito modulo di ingresso, in Reception durante gli
+          orari di presenza del Personale. Gli ospiti godono degli stessi privilegi di abbonamento del cliente e sono
+          soggetti alle stesse regole. La Direzione si riserva il diritto di escludere qualsiasi ospite per gli stessi
           motivi di cui all'articolo 6.
         </p>
       </div>
@@ -162,14 +178,15 @@ export default function TerminiPage() {
       <div className="mb-6">
         <h2 className="text-base font-semibold mb-2 text-gray-900">8. Accesso alla Sala Fitness</h2>
         <p className="text-gray-700 mb-3 font-medium leading-relaxed">
-          <strong>8.1</strong> - Per accedere alla sala fitness e sala corsi è obbligatoria un'uniforme adeguata: scarpe pulite,
-          tuta da ginnastica e/o abbigliamento idoneo alla attività fisica. Non è ammesso l'accesso alla sala senza la maglietta
-          ed almeno un paio di pantaloncini. Non è consentito accedere alla sala attrezzi scalzi e/o con ciabatte.
+          <strong>8.1</strong> - Per accedere alla sala fitness e sala corsi è obbligatoria un'uniforme adeguata: scarpe
+          pulite e diverse da quelle con cui si entra in struttura, tuta da ginnastica e/o abbigliamento idoneo alla attività
+          fisica. Non è ammesso l'accesso alla sala senza indossare la maglietta ed almeno un paio di pantaloncini. Non è
+          consentito accedere alla sala attrezzi scalzi e/o con ciabatte.
         </p>
         <p className="text-gray-700 mb-3 font-medium leading-relaxed">
-          <strong>8.2</strong> - Durante l'utilizzo delle attrezzature deve essere utilizzato un asciugamano personale per
-          garantire la propria igiene e quella altrui. I corsi di gruppo virtuali, nelle strutture ove vengono svolti,
-          seguiranno specifico palinsesto programmazione in alcune fasce orarie ed "on demand" nelle rimanenti.
+          <strong>8.2</strong> - Durante l'utilizzo delle attrezzature deve sempre essere utilizzato un asciugamano personale
+          per garantire la propria igiene e quella altrui. Al termine dell'uso delle attrezzature le stesse vanno pulite e/o
+          scaricate dai pesi che devono essere riposti negli appositi alloggiamenti.
         </p>
         <p className="text-gray-700 mb-3 font-medium leading-relaxed">
           <strong>8.3</strong> - L'età minima per accedere ai servizi della Palestra è di 15 anni. L'accesso ai minori di 18
@@ -202,11 +219,11 @@ export default function TerminiPage() {
       <div className="mb-6">
         <h2 className="text-base font-semibold mb-2 text-gray-900">10. Liberatoria di responsabilità e utilizzo delle immagini</h2>
         <p className="text-gray-700 mb-3 font-medium leading-relaxed">
-          Il sottoscritto dichiara di liberare ed esonerare la 24FIT SRL e/o tutte le società conduttrici a marchio 24FIT,
-          i Collaboratori, i Partner, gli Sponsor (collettivamente denominati "Organizzazione"), da qualunque responsabilità
-          in relazione a danni alla persona o a cose che dovessero essere subiti e/o provocati dal cliente medesimo durante
-          lo svolgimento delle attività, in relazione allo smarrimento o furto di effetti personali e in relazione al rischio
-          di infortuni durante le attività.
+          Il sottoscritto, con la firma del presente, dichiara di liberare ed esonerare la 24FIT SRL e/o tutte le società
+          conduttrici a marchio 24FIT, i Collaboratori, i Partner, gli Sponsor (collettivamente denominati "Organizzazione"),
+          da qualunque responsabilità in relazione a danni alla persona o a cose che dovessero essere subiti e/o provocati
+          dal cliente medesimo durante lo svolgimento delle attività, in relazione allo smarrimento o furto di effetti
+          personali e in relazione al rischio di infortuni durante le attività.
         </p>
         <p className="text-gray-700 mb-3 font-medium leading-relaxed">
           Il cliente con la sottoscrizione del presente si dichiara a conoscenza che durante le attività potranno essere
@@ -223,28 +240,28 @@ export default function TerminiPage() {
       <div className="mb-6">
         <h2 className="text-base font-semibold mb-2 text-gray-900">11. Sensore di prossimità per accesso alla Palestra</h2>
         <p className="text-gray-700 mb-3 font-medium leading-relaxed">
-          Il cliente a cui viene rilasciato il sensore di prossimità per l'accesso alla palestra, ne è responsabile, pertanto
-          è tenuto a custodirlo, utilizzandolo solo per le funzioni appropriate, non può cederlo a terzi neppur momentaneamente
-          nemmeno si trattasse anche di un solo utilizzo.
+          Il cliente a cui viene rilasciato il sensore di prossimità/badge per l'accesso alla palestra, ne è responsabile,
+          pertanto è tenuto a custodirlo, utilizzandolo solo per le funzioni appropriate, non può cederlo a terzi neppur
+          momentaneamente nemmeno si trattasse anche di un solo utilizzo.
         </p>
         <p className="text-gray-700 mb-3 font-medium leading-relaxed">
           Qualora il cliente dovesse smarrire il sensore di prossimità è tenuto a darne comunicazione IMMEDIATA alla Direzione,
           che provvederà alla sua disattivazione. Il cliente che per negligenza e/o non curanza non dovesse attenersi a tale
           regola, rischierebbe nel minore dei casi l'espulsione dalla palestra oppure alla denuncia alle autorità competenti
-          se qualcuno che, poi avesse recato danno alla struttura, si fosse introdotto con la sua chiave di accesso
-          smarrita/rubata senza che ne fosse stata fatta denuncia/segnalazione di disattivazione.
+          se qualcuno che, poi avesse recato danno alla struttura, si fosse introdotto con il sensore di prossimità/badge
+          smarrito/rubato senza che ne fosse stata fatta denuncia/segnalazione di disattivazione.
         </p>
       </div>
 
       <div className="mb-6">
         <h2 className="text-base font-semibold mb-2 text-gray-900">12. Varie</h2>
         <p className="text-gray-700 mb-3 font-medium leading-relaxed">
-          La direzione si riserva il diritto di variare gli orari di apertura o di chiusura della società stessa, di spostare
-          gli orari dei corsi e ridurre le ore dedicate a ciascun corso anche al fine di effettuare la pulizia e le riparazioni
-          necessarie ovvero in occasione di eventi speciali, di alcune festività e del periodo estivo. Ogni qualvolta la Direzione
-          lo reputi sufficiente, qualsiasi comunicazione al cliente sarà considerata come validamente effettuata attraverso
-          l'affissione di messaggi nella relativa palestra. La Società ha facoltà di modificare le strutture o le suddivisioni
-          interne oltre che sostituire le attrezzature o i macchinari usati nei diversi settori.
+          La direzione si riserva il diritto di variare gli orari di apertura o di chiusura della società stessa, anche al
+          fine di effettuare la pulizia e le riparazioni necessarie ovvero in occasione di eventi speciali, di alcune festività
+          e del periodo estivo. Ogni qualvolta la Direzione lo reputi sufficiente, qualsiasi comunicazione al cliente sarà
+          considerata come validamente effettuata attraverso l'affissione di messaggi nella relativa palestra e/o con
+          comunicazione via APP. La Società ha facoltà di modificare le strutture o le suddivisioni interne oltre che
+          sostituire le attrezzature o i macchinari usati nei diversi settori.
         </p>
       </div>
 

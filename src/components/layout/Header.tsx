@@ -244,13 +244,26 @@ export function Header() {
               </div>
             </div>
 
-            {/* Right side: CTA Button - mostrato solo se app disponibile e link validi */}
-            {!appComingSoon && appLinks.appStore && appLinks.appStore !== "#" && (
-              <div className="hidden md:flex items-center gap-4">
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.98 }}
-                >
+            {/* Right side: CTA Button */}
+            <div className="hidden md:flex items-center gap-4">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                {appComingSoon ? (
+                  <Link
+                    href="/onboarding"
+                    className={`inline-flex items-center gap-2 font-bold text-xs uppercase tracking-wide py-2.5 px-5 rounded-full transition-all ${
+                      isScrolled
+                        ? "bg-[var(--brand)] text-white hover:bg-[var(--brand)]/90"
+                        : hasOrangeBg
+                        ? "bg-white text-[var(--brand)] hover:bg-white/90"
+                        : "bg-[var(--brand)] text-white hover:bg-[var(--brand)]/90"
+                    }`}
+                  >
+                    Iscriviti
+                  </Link>
+                ) : appLinks.appStore && appLinks.appStore !== "#" ? (
                   <Link
                     href={appLinks.appStore}
                     className={`inline-flex items-center gap-2 font-bold text-xs uppercase tracking-wide py-2.5 px-5 rounded-full transition-all ${
@@ -264,9 +277,9 @@ export function Header() {
                     <Download size={14} />
                     Scarica App
                   </Link>
-                </motion.div>
-              </div>
-            )}
+                ) : null}
+              </motion.div>
+            </div>
 
             {/* Mobile Menu Button */}
             <button
