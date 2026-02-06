@@ -834,12 +834,20 @@ async function sendDailyPassAdminNotificationEmail(resend: Resend, order: OrderD
     lastName,
     phone,
     birthDate,
+    birthPlace,
+    fiscalCode,
+    address,
+    city,
+    postalCode,
+    province,
     clubName,
     amountTotal,
     currency,
     paymentId,
     createdAt,
   } = order;
+
+  const fullAddress = `${address}, ${postalCode} ${city} (${province})`;
 
   await resend.emails.send({
     from: "24FIT <noreply@24fit.it>",
@@ -908,6 +916,18 @@ async function sendDailyPassAdminNotificationEmail(resend: Resend, order: OrderD
                 <tr>
                   <td style="padding: 8px 0; color: #666666; font-size: 14px;">Data nascita:</td>
                   <td style="padding: 8px 0; color: #1a1a1a; font-size: 14px;">${formatDateShort(birthDate)}</td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px 0; color: #666666; font-size: 14px;">Luogo nascita:</td>
+                  <td style="padding: 8px 0; color: #1a1a1a; font-size: 14px;">${birthPlace || "Non fornito"}</td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px 0; color: #666666; font-size: 14px;">Codice Fiscale:</td>
+                  <td style="padding: 8px 0; color: #1a1a1a; font-size: 14px; font-family: monospace;">${fiscalCode || "Non fornito"}</td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px 0; color: #666666; font-size: 14px;">Indirizzo:</td>
+                  <td style="padding: 8px 0; color: #1a1a1a; font-size: 14px;">${fullAddress}</td>
                 </tr>
                 <tr>
                   <td style="padding: 8px 0; color: #666666; font-size: 14px;">Data acquisto:</td>
