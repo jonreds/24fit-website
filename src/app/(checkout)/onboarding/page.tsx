@@ -1451,7 +1451,15 @@ function StepPlan({
                       >
                         {plan.name}
                       </h3>
-                      {plan.popular && (
+                      {(plan.promoActive && plan.promoText) ? (
+                        <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${
+                          isSelected
+                            ? "bg-white text-[var(--brand)]"
+                            : "bg-[var(--brand)] text-white"
+                        }`}>
+                          {plan.promoText}
+                        </span>
+                      ) : plan.popular ? (
                         <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${
                           isSelected
                             ? "bg-white text-[var(--brand)]"
@@ -1459,7 +1467,7 @@ function StepPlan({
                         }`}>
                           Popolare
                         </span>
-                      )}
+                      ) : null}
                     </div>
                     <span
                       className={`text-xs sm:text-sm font-semibold ${

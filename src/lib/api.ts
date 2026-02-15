@@ -120,11 +120,13 @@ export async function fetchPublicPlans(strutturaId?: string): Promise<Plan[]> {
       }
 
       // Legacy format: map from raw API response
-      const durationMonths = Math.round(piano.durata_giorni / 30);
+      const durationMonths = piano.durata_mesi || Math.round(piano.durata_giorni / 30);
       const prezzoAbbonamento = parseFloat(piano.prezzo) || 0;
       const quotaIscrizione = parseFloat(piano.quota_iscrizione) || 0;
       const prezzoPromo = piano.prezzo_promo != null ? parseFloat(piano.prezzo_promo) : null;
-      const pricePerMonth = Math.round(prezzoAbbonamento / durationMonths);
+      const pricePerMonth = piano.prezzo_per_mese
+        ? parseFloat(piano.prezzo_per_mese)
+        : Math.round(prezzoAbbonamento / durationMonths);
 
       // Prezzo originale (sempre prezzo + quota, senza promo)
       const prezzoOriginale = prezzoAbbonamento + quotaIscrizione;
@@ -135,7 +137,7 @@ export async function fetchPublicPlans(strutturaId?: string): Promise<Plan[]> {
 
       return {
         id: piano.id,
-        name: `${durationMonths} ${durationMonths === 1 ? 'mese' : 'Mesi'}`,
+        name: piano.nome || `${durationMonths} ${durationMonths === 1 ? 'mese' : 'Mesi'}`,
         duration: durationMonths,
         // price è sempre il prezzo ORIGINALE (senza promo) - serve per mostrarlo barrato
         price: prezzoOriginale,
