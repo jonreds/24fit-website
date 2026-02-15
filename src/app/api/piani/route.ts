@@ -4,8 +4,8 @@ import prisma from '@/lib/prisma';
 
 export const dynamic = 'force-dynamic';
 
-// Use local API server (port 3001) instead of external domain to avoid DNS issues
-const API_URL = process.env.API_URL || 'http://127.0.0.1:3001';
+// Use API_URL if set, otherwise fall back to NEXT_PUBLIC_API_URL, then localhost
+const API_URL = process.env.API_URL || process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:3001';
 
 export async function GET(request: NextRequest) {
   const url = new URL(request.url);

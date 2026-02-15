@@ -3,8 +3,8 @@
 // ═══════════════════════════════════════════════════════════════
 
 // Use local API proxy to avoid CORS issues
-// Server-side: use local API (port 3001), Client-side: use relative path
-const API_BASE_URL = typeof window !== 'undefined' ? '' : (process.env.API_URL || 'http://127.0.0.1:3001');
+// Server-side: use API_URL or NEXT_PUBLIC_API_URL, Client-side: use relative path
+const API_BASE_URL = typeof window !== 'undefined' ? '' : (process.env.API_URL || process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:3001');
 
 // Mapping servizi ID to display labels for the website
 const SERVIZI_LABELS: Record<string, string> = {
