@@ -94,12 +94,18 @@ export async function fetchPublicPlans(strutturaId?: string): Promise<Plan[]> {
       // Check if data is already in the new format (from /api/public/piani)
       if (piano.name && piano.price !== undefined && piano.activationFee !== undefined) {
         // Data is already mapped, use directly
+        // Always calculate pricePerMonth from actual price and duration
+        // so it stays in sync when prices change
+        const calculatedPricePerMonth = piano.duration > 0
+          ? Math.round((piano.price - (piano.activationFee || 0)) / piano.duration)
+          : piano.pricePerMonth;
+
         return {
           id: piano.id,
           name: piano.name,
           duration: piano.duration,
           price: piano.price,
-          pricePerMonth: piano.pricePerMonth,
+          pricePerMonth: calculatedPricePerMonth,
           activationFee: piano.activationFee,
           popular: piano.popular || piano.featured,
           badge: piano.badge,
@@ -124,9 +130,10 @@ export async function fetchPublicPlans(strutturaId?: string): Promise<Plan[]> {
       const prezzoAbbonamento = parseFloat(piano.prezzo) || 0;
       const quotaIscrizione = parseFloat(piano.quota_iscrizione) || 0;
       const prezzoPromo = piano.prezzo_promo != null ? parseFloat(piano.prezzo_promo) : null;
-      const pricePerMonth = piano.prezzo_per_mese
-        ? parseFloat(piano.prezzo_per_mese)
-        : Math.round(prezzoAbbonamento / durationMonths);
+      // Always calculate from actual price/duration — prezzo_per_mese from API can be stale
+      const pricePerMonth = durationMonths > 0
+        ? Math.round(prezzoAbbonamento / durationMonths)
+        : 0;
 
       // Prezzo originale (sempre prezzo + quota, senza promo)
       const prezzoOriginale = prezzoAbbonamento + quotaIscrizione;
