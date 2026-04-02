@@ -119,8 +119,8 @@ export const PLANS: Plan[] = [
     id: "3-mesi",
     name: "3 Mesi",
     duration: 3,
-    price: 150, // Totale (abbonamento 120€ + iscrizione 30€)
-    pricePerMonth: 40,
+    price: 180, // Totale (abbonamento 150€ + iscrizione 30€)
+    pricePerMonth: 50,
     activationFee: 30,
     features: [
       "Accesso 24/7",
@@ -133,8 +133,8 @@ export const PLANS: Plan[] = [
     id: "6-mesi",
     name: "6 Mesi",
     duration: 6,
-    price: 230, // Totale (abbonamento 180€ + iscrizione 50€)
-    pricePerMonth: 30,
+    price: 260, // Totale (abbonamento 210€ + iscrizione 50€)
+    pricePerMonth: 35,
     activationFee: 50,
     popular: true,
     features: [
