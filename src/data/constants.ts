@@ -221,7 +221,7 @@ export const CONTRACTS: Contract[] = [
 // ═══════════════════════════════════════════════════════════════
 
 export const DAILY_PASS = {
-  price: 10,
+  price: 15,
   validityDays: 1,
   discountIfSubscribe: true,
   discountWithinDays: 10,
