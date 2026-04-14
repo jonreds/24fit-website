@@ -18,16 +18,21 @@ export async function POST(request: Request) {
     }
 
     // Salva nel database
-    const contatto = await prisma.contatti_nutrizione.create({
-      data: {
-        nome,
-        cognome,
-        email,
-        telefono,
-        obiettivo,
-        messaggio: messaggio || null,
-      },
-    });
+    let contatto: { id: number } | null = null;
+    try {
+      contatto = await prisma.contatti_nutrizione.create({
+        data: {
+          nome,
+          cognome,
+          email,
+          telefono,
+          obiettivo,
+          messaggio: messaggio || null,
+        },
+      });
+    } catch (dbError) {
+      console.error("[API] Errore salvataggio DB contatto nutrizione:", dbError);
+    }
 
     // Invia email di notifica al team
     const notificationEmail = process.env.NUTRITION_EMAIL || "nutrizione@24fit.it";
@@ -93,7 +98,7 @@ export async function POST(request: Request) {
     return NextResponse.json({
       success: true,
       message: "Richiesta inviata con successo",
-      id: contatto.id,
+      id: contatto?.id ?? null,
     });
   } catch (error) {
     console.error("[API] Errore contatto nutrizione:", error);
