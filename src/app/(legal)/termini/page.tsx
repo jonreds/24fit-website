@@ -52,9 +52,11 @@ export default function TerminiPage() {
           medesimo sia attivo e venga rinnovato entro la data di scadenza.
         </p>
         <p className="text-gray-700 mb-3 font-medium leading-relaxed">
-          È possibile cedere l'abbonamento a terzi (non la quota associativa), previo formale richiesta sottoscritta dal
-          cliente con individuazione del cessionario, il quale dovrà versare a 24FIT un importo una tantum di 99,00 € per
-          la gestione delle spese amministrative e assicurative, usufruendo così del periodo d'abbonamento per il periodo rimanente.
+          È possibile cedere a terzi il solo abbonamento (non la quota associativa né il badge) esclusivamente nei casi,
+          alle condizioni e con le modalità previsti dall'art. 5.4 del presente contratto, previa formale richiesta
+          sottoscritta dal cliente con individuazione del cessionario, il quale dovrà versare a 24FIT un importo una tantum
+          di 99,00 € per la gestione delle spese amministrative e assicurative, subentrando così nel periodo di abbonamento
+          residuo.
         </p>
       </div>
 
@@ -113,12 +115,13 @@ export default function TerminiPage() {
       </div>
 
       <div className="mb-6">
-        <h2 className="text-base font-semibold mb-2 text-gray-900">5. Sospensione dell'abbonamento</h2>
+        <h2 className="text-base font-semibold mb-2 text-gray-900">5. Sospensione dell'abbonamento e Cessione</h2>
         <p className="text-gray-700 mb-3 font-medium leading-relaxed">
           <strong>5.1</strong> - Con il termine "sospensione" si intende la possibilità da parte del cliente di sospendere
-          momentaneamente il proprio abbonamento, posticipando la data di scadenza dello stesso, della durata coincidente
-          alla sospensione. La sospensione può avvenire per i soli problemi di salute e/o di lavoro (vedi comma 5.3 che segue)
-          e può essere richiesta solo per un minimo di 21gg ed un massimo di 30gg e solo per 1 volta per la durata dell'abbonamento.
+          momentaneamente il proprio abbonamento, prevista solo su abbonamenti di almeno 6 mesi, posticipando la data di
+          scadenza dello stesso, della durata coincidente alla sospensione. La sospensione può avvenire per i soli problemi
+          di salute e/o di lavoro (vedi comma 5.3 che segue) e può essere richiesta solo per un minimo di 21gg ed un massimo
+          di 30gg e solo per 1 volta per la durata dell'abbonamento.
         </p>
         <p className="text-gray-700 mb-3 font-medium leading-relaxed">
           <strong>5.2</strong> - In caso di comprovate e sopravvenute sospensioni della attività non dipendenti dalla società
@@ -129,15 +132,16 @@ export default function TerminiPage() {
           che può eventualmente far valere sotto il profilo della eccessiva onerosità sopravvenuta.
         </p>
         <p className="text-gray-700 mb-3 font-medium leading-relaxed">
-          <strong>5.3</strong> - In caso di spostamento di luogo di lavoro, missioni, etc non prevedibili/previste dal cliente
-          in sede di iscrizione, tali da impedire al cliente di fruire dei servizi acquistati, solo previa presentazione del
-          documento che conferma lo spostamento/missione, il cliente potrà usufruire della sospensione dell'abbonamento,
-          variabile in base alla durata dell'abbonamento acquistato:
+          <strong>5.3</strong> - In caso di spostamento di luogo di lavoro di almeno 30Km rispetto alla sede delle Palestre
+          e/o missioni, etc non prevedibili/previste dal cliente in sede di iscrizione, tali da impedire al cliente di fruire
+          dei servizi acquistati. Il motivo della richiesta della sospensione deve essere motivato e documentato a mezzo
+          scritto. Il cliente potrà usufruire della sospensione dell'abbonamento, variabile in base alla durata
+          dell'abbonamento acquistato:
         </p>
         <ul className="list-disc pl-6 mb-3 text-gray-700 font-medium space-y-1">
           <li>6M – minimo di 21gg ed un massimo di 30gg, solo per 1 volta per la durata dell'abbonamento;</li>
-          <li>12M – minimo di 21gg ed un massimo di 60gg, solo per 1 volta per la durata dell'abbonamento;</li>
-          <li>24M – minimo di 21gg ed un massimo di 120gg, solo per 1 volta per la durata dell'abbonamento;</li>
+          <li>12M – minimo di 21gg ed un massimo di 30gg, solo per 1 volta per la durata dell'abbonamento;</li>
+          <li>24M – minimo di 21gg ed un massimo di 60gg, solo per 1 volta per la durata dell'abbonamento;</li>
         </ul>
         <p className="text-gray-700 mb-3 font-medium leading-relaxed">
           Per abbonamenti di diversa durata (inferiori ai 6m) non sono previste sospensioni.
@@ -145,6 +149,26 @@ export default function TerminiPage() {
         <p className="text-gray-700 mb-3 font-medium leading-relaxed">
           La Quota associativa ed il Badge non sono rimborsabili né cedibili a terzi; per l'abbonamento valgono le note
           precisate al punto 1 del presente.
+        </p>
+
+        <h3 className="text-base font-semibold mb-2 mt-4 text-gray-900">5.4 Cessione Abbonamento</h3>
+        <p className="text-gray-700 mb-3 font-medium leading-relaxed">
+          Il contratto di abbonamento è personale ed INCEDIBILE a terzi. Solo previa autorizzazioni della società di Gestione,
+          su comprovate ed impreviste ed imprevedibili situazioni, solo sugli abbonamenti della durata di almeno 12 mesi
+          (e non in PROMOZIONE), il cliente può richiedere la cessione della sola parte di abbonamento ancora non utilizzata
+          per le seguenti ragioni imprevedibili al momento della sottoscrizione:
+        </p>
+        <ul className="list-disc pl-6 mb-3 text-gray-700 font-medium space-y-1">
+          <li>Sopraggiunta invalidità permanente documentata e sopravvenuta successivamente alla sottoscrizione del contratto,
+          per una percentuale di invalidità di almeno il 33%;</li>
+          <li>Cambio di residenza rispetto a quella del momento dell'iscrizione, con allontanamento di almeno 30Km;</li>
+          <li>Cambio di Lavoro rispetto a quello del momento dell'iscrizione, con allontanamento di almeno 30Km dalla
+          precedente attività lavorativa.</li>
+        </ul>
+        <p className="text-gray-700 mb-3 font-medium leading-relaxed">
+          Nei casi di cui sopra la parte di abbonamento in corso di validità e residuo, potrà essere ceduto ad un soggetto
+          terzo, nominato dal cedente con apposita richiesta via mail all'indirizzo info@24fit.it e successiva autorizzazione
+          a stesso mezzo della società di Gestione. La quota associativa ed il badge non sono cedibili.
         </p>
       </div>
 
@@ -265,7 +289,7 @@ export default function TerminiPage() {
       </div>
 
       <div className="mb-6">
-        <h2 className="text-base font-semibold mb-2 text-gray-900">13. Consenso - Ricevuta Decreto legislativo UE n. 679/2016 (Codice sulla Privacy)</h2>
+        <h2 className="text-base font-semibold mb-2 text-gray-900">13. Consenso - Regolamento UE n. 679/2016 (Codice sulla Privacy)</h2>
         <p className="text-gray-700 mb-3 font-medium leading-relaxed">
           Con l'accettazione del contratto il cliente esprime il consenso al trattamento dei suoi dati ivi compresi i dati
           personali, sensibili e biometrici, come da informativa circa l'art. 12 e ss. Regolamento UE 679/2016.
