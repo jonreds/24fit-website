@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   turbopack: {
-    root: "/Users/giovannirossi/Desktop/24FIT/24fit-website",
+    root: import.meta.dirname,
   },
   images: {
     remotePatterns: [
